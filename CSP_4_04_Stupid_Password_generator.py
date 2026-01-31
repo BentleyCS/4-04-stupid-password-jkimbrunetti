@@ -1,19 +1,18 @@
-"""
-Problem: Stupid Password Generator
-Write a program that enters two integers n and l and generates, in alphabetical order, all possible "stupid” passwords" that consist of the following 5 characters:
-
-Character 1: a digit from 1 to n.
-Character 2: a digit from 1 to n.
-Character 3: a small letter from the first l letters of the Latin alphabet.
-Character 4: a small letter from the first l letters of the Latin alphabet.
-Character 5: a digit from 1 to n, greater than the first 2 digits.
-Input Data
-The input is read as arguments and consists of two integers: n and l within the range [1 … 9].Screenshot 2025-10-07 at 10.53.33 AM.png
-
-Output Data
-Return a list of all "stupid" passwords in alphabetical order.
-"""
+import random
 
 def stupidPassword(n: int, l: int):
-    pass
+    alphabetLowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+    passwords = []
+    for d1 in range(1,n+1):
+        for d2 in range(1,n+1):
+            for c1 in range(l):
+                for c2 in range(l):
+                    for d3 in range(1, n + 1):
+                        if d3 > d1 and d3 > d2:
+                            password = (str(d1)+str(d2)+alphabetLowercase[c1]+alphabetLowercase[c2]+str(d3))
+                            passwords.append(password)
+    return passwords
 
+stupidPassword(9,5)
+
+#why you make this homework so annoying :|
